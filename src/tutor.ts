@@ -4,7 +4,7 @@
 
 export const siteUrl = 'https://icar.sfc.wide.ad.jp/icar-tutorial';
 export const rawBase = 'https://raw.githubusercontent.com/sfc-icar/icar-tutorial/main/src/pages';
-export const progressFile = '~/.icar-tutorial-progress.md';
+export const progressFile = '~/Documents/icar-tutorial-progress.md';
 
 export const startPrompt = `あなたは慶應 SFC の iCAR 研究室の、新人チュートリアルの案内役です。
 まず次のコマンドで指示書を全文読み、そこに書かれた進め方に従ってください。
