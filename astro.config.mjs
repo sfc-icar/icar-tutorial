@@ -4,4 +4,9 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://icar.sfc.wide.ad.jp',
   base: '/icar-tutorial',
+  markdown: {
+    shikiConfig: {
+      themes: { light: 'github-light', dark: 'github-dark' },
+    },
+  },
 });

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 246" role="img" aria-label="git がないとファイルのコピーが増えていく。git があるとファイルは1つで、変更の履歴が一列に残る">
+<style>
+  text { font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; fill: #1f2328; font-size: 15px; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  .muted { fill: #5f6670; font-size: 13px; }
+  .accent { fill: #1d5c8c; }
+  .box { fill: #ffffff; stroke: #c9c9c2; stroke-width: 1.5; }
+  .soft { fill: #e8f0f6; stroke: #1d5c8c; stroke-width: 1.5; }
+  .plain { fill: #f1f1ec; stroke: none; }
+  .line { stroke: #8a9099; stroke-width: 1.5; fill: none; }
+  .aline { stroke: #1d5c8c; stroke-width: 2; fill: none; }
+  .dot { fill: #1d5c8c; }
+  .hollow { fill: #ffffff; stroke: #1d5c8c; stroke-width: 2; }
+  .head { fill: #8a9099; }
+  .ahead { fill: #1d5c8c; }
+  @media (prefers-color-scheme: dark) {
+    text { fill: #e6e6e3; }
+    .muted { fill: #9aa0a8; }
+    .accent { fill: #7db4dc; }
+    .box { fill: #1c1f23; stroke: #3a3e44; }
+    .soft { fill: #1d2a35; stroke: #7db4dc; }
+    .plain { fill: #202328; }
+    .line { stroke: #7a808a; }
+    .aline { stroke: #7db4dc; }
+    .dot { fill: #7db4dc; }
+    .hollow { fill: #1c1f23; stroke: #7db4dc; }
+    .head { fill: #7a808a; }
+    .ahead { fill: #7db4dc; }
+  }
+</style>
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="head"/></marker>
+  <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ahead"/></marker>
+</defs>
+<text x="20" y="32" class="muted">git がないと</text><rect x="20" y="46" width="160" height="44" rx="6" class="box"/><text x="100" y="73" text-anchor="middle" class="mono" style="font-size:12px">index.html</text><rect x="192" y="46" width="160" height="44" rx="6" class="box"/><text x="272" y="73" text-anchor="middle" class="mono" style="font-size:12px">index_最終.html</text><rect x="364" y="46" width="160" height="44" rx="6" class="box"/><text x="444" y="73" text-anchor="middle" class="mono" style="font-size:12px">index_最終2.html</text><rect x="536" y="46" width="160" height="44" rx="6" class="box"/><text x="616" y="73" text-anchor="middle" class="mono" style="font-size:12px">index_本当に最終.html</text><text x="20" y="132" class="muted">git があると（ファイルは1つ、履歴が残る）</text><line x1="60" y1="176" x2="612" y2="176" class="aline"/><circle cx="60" cy="176" r="9" class="dot"/><text x="60" y="208" text-anchor="middle">最初の版</text><text x="60" y="228" text-anchor="middle" class="muted">2016</text><circle cx="244" cy="176" r="9" class="dot"/><text x="244" y="208" text-anchor="middle">メンバーを追加</text><text x="244" y="228" text-anchor="middle" class="muted">2023</text><circle cx="428" cy="176" r="9" class="dot"/><text x="428" y="208" text-anchor="middle">業績を追加</text><text x="428" y="228" text-anchor="middle" class="muted">2024</text><circle cx="612" cy="176" r="9" class="hollow"/><text x="612" y="208" text-anchor="middle">あなたの変更</text><text x="612" y="228" text-anchor="middle" class="muted">これから</text>
+</svg>

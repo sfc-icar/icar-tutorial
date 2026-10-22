@@ -116,7 +116,7 @@ pre {
   border-radius: 8px;
   overflow-x: auto;
 }
-pre code { padding: 0; }
+pre code { padding: 0; background: none; }
 
 /* チェックリスト */
 ul.contains-task-list { list-style: none; padding-left: 0; }
@@ -160,4 +160,216 @@ ul.contains-task-list { list-style: none; padding-left: 0; }
   .brand { display: none; }
   main { padding: 32px 16px 72px; }
   h1 { font-size: 25px; }
+}
+
+/* コードの色分け: ダークモードでは暗いテーマに切り替える */
+pre.astro-code { border: 1px solid var(--line); }
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+/* 章の中のレッスン切り替え */
+.steps {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 8px 0 20px;
+}
+.steps a {
+  display: block;
+  padding: 2px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+.steps a:hover { color: var(--text); }
+.steps a[aria-current="page"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* このレッスンで学ぶこと */
+.goals {
+  margin: 24px 0 8px;
+  padding: 16px 20px;
+  background: var(--accent-soft);
+  border-radius: 8px;
+}
+.goals > p:first-child {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+.goals ul { margin: 0; padding-left: 1.2em; }
+
+/* 図 */
+figure { margin: 28px 0; }
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 表 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th { color: var(--muted); font-weight: 600; }
+
+/* ブラウザでの表示例 */
+.demo {
+  position: relative;
+  margin: 8px 0 28px;
+  padding: 36px 20px 20px;
+  background: #ffffff;
+  color: #1f2328;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.6;
+}
+.demo::before {
+  content: "ブラウザでの表示";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 12px;
+  color: #8a9099;
+}
+.demo h1 { font-size: 30px; margin: 0 0 8px; }
+.demo h3 { font-size: 18px; margin: 0; }
+.demo p { margin: 0; }
+.demo-css .member-item {
+  max-width: 240px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+}
+.demo-css .member-item h3 { color: #1d5c8c; margin: 0; }
+.demo-box { font-size: 13px; }
+.demo-box div { padding: 10px 12px; border-radius: 6px; }
+.box-margin { background: #fdf2dc; border: 1px dashed #d9b46a; }
+.box-border { background: #ffffff; border: 2px solid #8a9099; margin-top: 6px; }
+.box-padding { background: #e3f1e4; margin-top: 6px; }
+.box-content { background: #e8f0f6; margin-top: 6px; text-align: center; }
+
+/* コラム */
+aside {
+  margin: 28px 0;
+  padding: 14px 20px;
+  border-left: 3px solid var(--line);
+  color: var(--text);
+}
+aside p { margin: 6px 0; }
+aside.ask { border-left-color: var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; }
+aside.ask > p:first-child {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+aside.note { background: var(--code-bg); border-radius: 0 8px 8px 0; }
+
+/* 確認テスト */
+.quiz {
+  margin: 16px 0;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.quiz > p:first-child { margin-top: 0; font-weight: 600; }
+.quiz ol { margin: 8px 0; }
+.quiz pre { margin: 8px 0; }
+.quiz details { margin-top: 8px; }
+.quiz summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 15px;
+}
+.quiz details p { margin: 8px 0 0; }
+
+/* 番号付きの手順の中のコード */
+ol li pre { margin: 10px 0 14px; }
+
+/* CSS を切り替えるデモ（2-3）。チェックが入っているルールだけが当たる */
+.css-toggle {
+  margin: 20px 0 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.css-toggle .switches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.css-toggle .switches label { cursor: pointer; white-space: nowrap; }
+.css-toggle .switches input { accent-color: var(--accent); margin-right: 4px; }
+.css-toggle .switches label:first-child { font-weight: 700; width: 100%; }
+.css-toggle:not(:has(.r-all:checked)) .switches label:not(:first-child) { opacity: 0.4; }
+.css-toggle .stage { background: #ffffff; color: #000000; overflow-x: auto; }
+
+/* CSS 全体がオフ: ブラウザ標準の見た目に戻す */
+.css-toggle:not(:has(.r-all:checked)) .stage * { all: revert; }
+
+/* CSS 全体がオン: 今のサイト（Bootstrap + new-age.css + extrastyle.css）の主なルール */
+.css-toggle:has(.r-all:checked) .stage .member {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 32px 16px;
+  font-family: 'Muli', 'Helvetica', 'Arial', sans-serif;
+  color: #333333;
+  line-height: 1.43;
+}
+.css-toggle:has(.r-all:checked) .stage .member-item { flex: 1 1 240px; padding: 0 12px; }
+.css-toggle:has(.r-all:checked) .stage h3,
+.css-toggle:has(.r-all:checked) .stage h4 {
+  font-family: 'Catamaran', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+.css-toggle:has(.r-all:checked) .stage h3 { font-size: 24px; }
+.css-toggle:has(.r-all:checked) .stage h4 { font-size: 18px; }
+.css-toggle:has(.r-all:checked) .stage p { font-size: 18px; margin: 0 0 20px; }
+.css-toggle:has(.r-all:checked) .stage .text-muted { color: #777777; }
+.css-toggle:has(.r-all:checked) .stage .img-responsive { display: block; max-width: 100%; height: auto; }
+
+.css-toggle:has(.r-all:checked):has(.r-bg:checked) .stage .member { background-color: #eeeeee; }
+.css-toggle:has(.r-all:checked):has(.r-item:checked) .stage .member-item { text-align: center; }
+.css-toggle:has(.r-all:checked):has(.r-name:checked) .stage .member-item h3 { font-size: 30px; }
+.css-toggle:has(.r-all:checked):has(.r-face:checked) .stage .facepic {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 180px;
+  border: 5px solid white;
 }

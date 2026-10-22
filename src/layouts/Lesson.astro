@@ -1,0 +1,35 @@
+---
+import Base from './Base.astro';
+import { lessons } from '../chapters';
+
+// URL（例: /icar-tutorial/02-html-css/3/）から、いまどのレッスンかを探す
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^\//, '');
+const i = lessons.findIndex((l) => path.startsWith(l.path));
+const lesson = lessons[i];
+const chapter = lesson.chapter;
+const prev = lessons[i - 1];
+const next = lessons[i + 1];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title={lesson.title} current={chapter.slug}>
+  <p class="eyebrow">第{chapter.num}章 {chapter.title}</p>
+  {chapter.lessons.length > 1 && (
+    <ol class="steps">
+      {chapter.lessons.map((title, j) => (
+        <li>
+          <a href={`${base}/${chapter.slug}/${j + 1}/`} aria-current={j + 1 === lesson.n ? 'page' : undefined}>
+            {chapter.num}-{j + 1} {title}
+          </a>
+        </li>
+      ))}
+    </ol>
+  )}
+  <h1>{lesson.title}</h1>
+  <article>
+    <slot />
+  </article>
+  <nav class="pager">
+    {prev ? <a href={`${base}/${prev.path}`}>← {prev.title}</a> : <span />}
+    {next && <a href={`${base}/${next.path}`}>{next.title} →</a>}
+  </nav>
+</Base>
