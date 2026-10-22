@@ -1,0 +1,26 @@
+---
+// コピーボタン付きでプロンプトを表示する部品
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+---
+<div class="prompt">
+  <div class="prompt-bar">
+    <span>Claude Code に貼るプロンプト</span>
+    <button type="button" class="copy">コピー</button>
+  </div>
+  <pre><code>{text}</code></pre>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.prompt').forEach((box) => {
+    const button = box.querySelector<HTMLButtonElement>('.copy')!;
+    const text = box.querySelector('code')!.textContent ?? '';
+    button.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(text);
+      button.textContent = 'コピーしました';
+      setTimeout(() => (button.textContent = 'コピー'), 2000);
+    });
+  });
+</script>

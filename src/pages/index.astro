@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import CopyPrompt from '../components/CopyPrompt.astro';
 import { chapters } from '../chapters';
+import { startPrompt, progressFile } from '../tutor';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
@@ -27,10 +29,30 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     ))}
   </ol>
 
-  <section class="start">
+  <section class="start" id="start">
     <h2>はじめかた</h2>
-    <p>研究室サイトのリポジトリで Claude Code を開き、次のように話しかけてください。あとは Claude が章の順に案内します。</p>
-    <pre><code>はじめよう</code></pre>
-    <p>途中でやめても、次の日に「続き」と言えば止まったところから再開できます。</p>
+    <p>このチュートリアルは、Claude Code に案内役をしてもらいながら進めます。</p>
+    <ol>
+      <li>
+        Claude Code をインストールします。ターミナルを使うのがはじめてなら、先に
+        <a href={`${base}/00-hajimeyou/2/`}>0-2 ターミナルと Claude Code</a> を読んでください。
+      </li>
+      <li>
+        ターミナルで次を打って、Claude Code を起動します。
+        <pre><code>cd ~/Documents
+claude</code></pre>
+      </li>
+      <li>下のプロンプトをコピーして、Claude Code に貼り付けて送ります。</li>
+    </ol>
+
+    <CopyPrompt text={startPrompt} />
+
+    <p>
+      Claude は、このサイトの<a href={`${base}/claude.txt`}>案内役への指示書</a>を読んでから、0 章から順に案内します。
+      指示書には、章ごとにどう教えるか、何を確認するかが書いてあります。誰でも読めるので、気になったら覗いてみてください。
+    </p>
+    <p>
+      途中でやめても大丈夫です。進み具合は <code>{progressFile}</code> に記録されるので、次の日に同じプロンプトを送れば、止まったところから再開できます。
+    </p>
   </section>
 </Base>
