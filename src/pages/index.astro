@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import { chapters } from '../chapters';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base>
+  <h1>iCAR 新人チュートリアル</h1>
+  <p class="lead">
+    研究室の Web サイトを作り直しながら、git と Web ページの基礎、フレームワークの考え方を身につけます。
+  </p>
+  <p>
+    各章は「学ぶ」と「やる」の組になっています。読んだらすぐ手を動かして、研究室サイトの一部を自分で作ります。
+  </p>
+
+  <ol class="chapters">
+    {chapters.map((c) => (
+      <li>
+        <a href={`${base}/${c.slug}/`}>
+          <span class="num">{c.num}</span>
+          <span>
+            <strong>{c.title}</strong>
+            <span class="summary">{c.summary}</span>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+
+  <section class="start">
+    <h2>はじめかた</h2>
+    <p>研究室サイトのリポジトリで Claude Code を開き、次のように話しかけてください。あとは Claude が章の順に案内します。</p>
+    <pre><code>はじめよう</code></pre>
+    <p>途中でやめても、次の日に「続き」と言えば止まったところから再開できます。</p>
+  </section>
+</Base>
